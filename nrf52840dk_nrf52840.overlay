@@ -1,0 +1,26 @@
+&i2c0 {
+	status = "okay";
+	compatible = "nordic,nrf-twim";
+	sda-pin = < 26 >;
+	scl-pin = < 27 >;
+    clock-frequency = <I2C_BITRATE_FAST>;
+};
+
+&button2{
+        status="okay";
+        gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        
+};
+&button3{
+        status="okay";
+        gpios = <&gpio0 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        
+};
+
+/ {
+     aliases {
+             int1 = &button2;
+             int2 = &button3;
+
+     };
+};
